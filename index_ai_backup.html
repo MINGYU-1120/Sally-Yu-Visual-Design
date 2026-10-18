@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sally Yu | Portfolio 2026 精選實戰專案作品集</title>
+  <meta name="description" content="Sally Yu 個人設計作品集。專注於展會主視覺、平面專案、LINE圖文選單、商業包裝、eDM行銷與商業影音剪輯。">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Noto Sans TC, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration matching PDF palette -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            pdf: {
+              navy: '#162033',       // PDF 深深藍 (標題、主方塊)
+              navyLight: '#1f2d47',  // 輔助深藍
+              teal: '#00b4b6',       // PDF 亮青綠 / 藍綠色 (圓形、Design 色塊)
+              tealDark: '#009799',   // 懸停青綠
+              ice: '#e0f2fe',        // 淺冰藍 (幾何三角、底色)
+              sky: '#9bd1e5',        // 點狀矩陣藍
+              slate: '#475569',      // 內文文字灰
+              slateLight: '#64748b', // 說明文字灰
+              bg: '#f8fafc',         // 網頁極淺灰底色
+              card: '#ffffff',       // 純白卡片
+              border: '#e2e8f0',     // 邊框灰
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans TC"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar in PDF color scheme */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+      border: 1px solid #e2e8f0;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* PDF Pattern: Geometric Dot Matrix */
+    .bg-dot-pattern {
+      background-image: radial-gradient(#9bd1e5 1.5px, transparent 1.5px);
+      background-size: 16px 16px;
+    }
+
+    /* PDF Pattern: 45 Degree Diagonal Stripes */
+    .bg-stripes {
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 180, 182, 0.08),
+        rgba(0, 180, 182, 0.08) 2px,
+        transparent 2px,
+        transparent 8px
+      );
+    }
+
+    /* Card Shadow derived from PDF elegance */
+    .pdf-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 20px -4px rgba(22, 32, 51, 0.05), 0 2px 6px -2px rgba(22, 32, 51, 0.03);
+    }
+
+    .pdf-card:hover {
+      border-color: #00b4b6;
+      box-shadow: 0 16px 36px -8px rgba(0, 180, 182, 0.15), 0 4px 12px -2px rgba(22, 32, 51, 0.05);
+    }
+
+    /* Active thumbnail in Lightbox */
+    .thumb-active {
+      border-color: #00b4b6 !important;
+      box-shadow: 0 0 0 2px rgba(0, 180, 182, 0.35);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="bg-pdf-bg text-pdf-slate font-sans antialiased selection:bg-pdf-teal selection:text-white relative min-h-screen flex flex-col">
+
+  <!-- ========================================================================= -->
+  <!-- GEOMETRIC DECORATIVE ACCENTS (PDF Inspired) -->
+  <!-- ========================================================================= -->
+  <!-- Top Left Geometric Motif (similar to PDF Page 1 & 2) -->
+  <div class="absolute top-0 left-0 w-72 h-72 pointer-events-none overflow-hidden z-0 opacity-40">
+    <div class="absolute -top-10 -left-10 w-44 h-44 bg-pdf-teal/15 rotate-45 transform origin-center"></div>
+    <div class="absolute top-12 left-24 w-16 h-16 bg-pdf-navy/10 rotate-45"></div>
+    <div class="absolute top-28 left-8 w-24 h-24 bg-dot-pattern"></div>
+  </div>
+
+  <!-- Top Right Geometric Accent -->
+  <div class="absolute top-4 right-6 w-60 h-60 pointer-events-none overflow-hidden z-0 opacity-40 hidden md:block">
+    <div class="absolute top-0 right-10 w-24 h-24 bg-stripes rounded-lg"></div>
+    <div class="absolute top-12 right-28 w-16 h-16 bg-pdf-ice rounded-full"></div>
+    <div class="absolute top-24 right-8 w-20 h-20 bg-dot-pattern"></div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- TOP MINIMAL HEADER BAR (PDF Aesthetic) -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pdf-border shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
+      
+      <!-- Brand Logo / PDF Title Style -->
+      <div class="flex items-center gap-4">
+        <!-- PDF Geometric Icon -->
+        <div class="flex items-center gap-1.5">
+          <div class="w-6 h-6 bg-pdf-navy rounded-sm flex items-center justify-center">
+            <div class="w-2.5 h-2.5 rounded-full bg-pdf-teal"></div>
+          </div>
+          <div class="w-3.5 h-3.5 bg-pdf-teal rotate-45 transform"></div>
+        </div>
+
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-bold tracking-tight text-pdf-navy">Sally Yu</span>
+            <span class="text-xs font-mono text-pdf-teal font-semibold px-2 py-0.5 rounded bg-pdf-ice/60 border border-pdf-teal/20">
+              Portfolio 2026
+            </span>
+          </div>
+          <span class="text-[11px] text-pdf-slateLight font-mono">Visual Design & Front-end Portfolio</span>
+        </div>
+      </div>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-3">
+        <!-- PDF Style Symbol Tag -->
+        <div class="hidden sm:flex items-center gap-1.5 text-xs text-pdf-navy font-mono font-medium bg-pdf-bg px-3 py-1.5 rounded-lg border border-pdf-border">
+          <span class="text-pdf-teal">◆</span>
+          <span class="text-pdf-navy">■</span>
+          <span>專業平面與數位設計</span>
+        </div>
+
+        <button onclick="copyEmail()" class="px-3.5 py-1.5 rounded-lg bg-pdf-navy hover:bg-pdf-navyLight text-white text-xs font-medium transition shadow-sm flex items-center gap-1.5">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-pdf-teal"></i>
+          <span>複製聯絡信箱</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN PORTFOLIO WORKS SHOWCASE -->
+  <!-- ========================================================================= -->
+  <main class="relative z-10 flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full">
+    
+    <!-- Section Title & Category Filter Tabs Header (PDF Inspired) -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-8 border-b border-pdf-border">
+      <div>
+        <!-- PDF Symbol Prefix -->
+        <div class="flex items-center gap-2 text-xs font-mono font-bold tracking-wider mb-2">
+          <span class="text-pdf-teal text-sm">◆</span>
+          <span class="text-pdf-navy text-sm">■</span>
+          <span class="text-pdf-navy uppercase">SELECTED PORTFOLIO WORKS</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-pdf-navy tracking-tight leading-tight">
+          精選實戰 <span class="text-pdf-teal">專案作品展示</span>
+        </h1>
+        <p class="text-pdf-slateLight text-sm sm:text-base mt-2.5 max-w-2xl leading-relaxed">
+          平面設計、展覽行銷與商業影音實務成果。點擊任意作品卡片可展開完整多張高清圖、刀模、廣告看板與短影音展示。
+        </p>
+      </div>
+
+      <!-- Filter Buttons (PDF Clean Geometric Pills) -->
+      <div class="flex flex-wrap gap-2 text-xs font-medium" id="filter-buttons">
+        <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl bg-pdf-navy text-white font-semibold shadow-sm transition-all flex items-center gap-1.5">
+          <span class="text-pdf-teal text-[10px]">■</span>
+          <span>全部作品</span>
+        </button>
+        <button data-filter="expo" class="filter-btn px-4 py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all">展會與空間</button>
+        <button data-filter="packaging" class="filter-btn px-4 py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all">商業包裝</button>
+        <button data-filter="social" class="filter-btn px-4 py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all">LINE與社群</button>
+        <button data-filter="branding" class="filter-btn px-4 py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all">品牌與標誌</button>
+        <button data-filter="edm" class="filter-btn px-4 py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all">動態與eDM</button>
+        <button data-filter="video" class="filter-btn px-4 py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all">商業影音</button>
+      </div>
+    </div>
+
+    <!-- Works Grid Container (Dynamic via JS) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="works-grid">
+      <!-- Injected by JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER (PDF Style) -->
+  <!-- ========================================================================= -->
+  <footer class="relative z-10 border-t border-pdf-border bg-white py-8 text-xs text-pdf-slateLight font-mono">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 text-pdf-navy font-medium">
+        <span class="text-pdf-teal">◆</span>
+        <span class="text-pdf-navy">■</span>
+        <span>2026 Portfolio · Sally Yu 設計接案作品集</span>
+      </div>
+      <div class="flex items-center gap-4 text-pdf-slate">
+        <span>Skills: Illustrator / Photoshop / After Effects / Premiere Pro</span>
+        <span class="text-pdf-teal">|</span>
+        <span>點擊作品卡片檢視高清多圖</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: MULTI-IMAGE & MEDIA LIGHTBOX (PDF Inspired Elegance) -->
+  <!-- ========================================================================= -->
+  <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-5 md:p-8 backdrop-blur-md bg-slate-900/60 transition-all duration-300 opacity-0" aria-modal="true" role="dialog">
+    <div class="relative w-full max-w-6xl max-h-[94vh] bg-white rounded-3xl overflow-hidden flex flex-col border border-pdf-border shadow-2xl scale-95 transition-transform duration-300" id="modal-container">
+      
+      <!-- Modal Top Bar (Clean Crisp White & Navy) -->
+      <div class="px-5 py-4 border-b border-pdf-border flex items-center justify-between bg-pdf-bg/80">
+        <div class="flex items-center gap-3 overflow-hidden">
+          <div class="flex items-center gap-1.5 shrink-0">
+            <span class="text-pdf-teal text-xs">◆</span>
+            <span class="text-pdf-navy text-xs">■</span>
+          </div>
+          <span id="modal-category" class="text-xs font-mono px-3 py-1 rounded-full bg-pdf-ice text-pdf-navy font-semibold border border-pdf-teal/30 whitespace-nowrap">
+            類別名稱
+          </span>
+          <h2 id="modal-title" class="text-base sm:text-lg font-bold text-pdf-navy truncate max-w-md sm:max-w-lg">
+            作品標題
+          </h2>
+        </div>
+
+        <!-- Right Controls: View Mode & Close -->
+        <div class="flex items-center gap-2">
+          <!-- View Mode Toggle: Slider vs All-in-one Grid -->
+          <button id="toggle-view-mode-btn" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-pdf-border text-xs text-pdf-navy font-medium transition shadow-sm">
+            <i data-lucide="grid" class="w-3.5 h-3.5 text-pdf-teal"></i>
+            <span id="view-mode-text">展開全部圖片平鋪</span>
+          </button>
+          
+          <button id="close-modal-btn" class="p-2 rounded-xl text-pdf-slate hover:text-pdf-navy hover:bg-slate-100 transition" aria-label="關閉視窗">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="overflow-y-auto flex-1 p-4 sm:p-6 space-y-6">
+        
+        <!-- ================= MODE A: SLIDER / MAIN VIEWER ================= -->
+        <div id="slider-view-section" class="flex flex-col gap-4">
+          
+          <!-- Large Main Preview Area with Contrast Dark Canvas for Optimal Color Clarity -->
+          <div class="relative w-full aspect-[16/10] sm:aspect-[16/9] max-h-[58vh] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 flex items-center justify-center group shadow-inner">
+            
+            <!-- Active Image -->
+            <img id="main-preview-img" src="" alt="高解析作品預覽" class="w-full h-full object-contain transition-all duration-300">
+
+            <!-- Active Video (Hidden unless video type) -->
+            <video id="main-preview-video" controls class="hidden w-full h-full object-contain bg-black"></video>
+
+            <!-- Navigation Arrow: Previous -->
+            <button id="prev-media-btn" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-pdf-teal hover:text-white text-pdf-navy border border-slate-200 flex items-center justify-center backdrop-blur-md transition-all shadow-lg focus:outline-none" aria-label="上一張圖片">
+              <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Navigation Arrow: Next -->
+            <button id="next-media-btn" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-pdf-teal hover:text-white text-pdf-navy border border-slate-200 flex items-center justify-center backdrop-blur-md transition-all shadow-lg focus:outline-none" aria-label="下一張圖片">
+              <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Current Media Caption Overlay -->
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 flex items-center justify-between text-xs text-white">
+              <div class="flex items-center gap-2">
+                <span id="media-counter-badge" class="px-2 py-0.5 rounded-md bg-pdf-teal text-white font-mono text-[11px] font-bold">
+                  1 / 1
+                </span>
+                <span id="media-caption-text" class="font-medium text-slate-100 line-clamp-1">
+                  圖片說明文字
+                </span>
+              </div>
+
+              <!-- Open Raw / Zoom Link -->
+              <a id="open-raw-link" href="#" target="_blank" class="hidden sm:flex items-center gap-1 text-[11px] text-slate-200 hover:text-pdf-teal transition bg-white/20 hover:bg-white/30 px-2.5 py-1 rounded-lg backdrop-blur-sm">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                <span>開啟原始檔</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Horizontal Thumbnails Strip (PDF Style) -->
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center justify-between text-[11px] text-pdf-slate font-mono px-1">
+              <span id="thumbs-title-text" class="font-medium">點擊下方縮圖快速切換詳細內容：</span>
+              <span class="text-pdf-slateLight">支援鍵盤左右鍵（← / →）切換</span>
+            </div>
+
+            <!-- Scrollable Thumbnails Strip -->
+            <div id="thumbnails-strip" class="flex items-center gap-3 overflow-x-auto pb-2 pt-1 px-1">
+              <!-- Injected by JS -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ================= MODE B: ALL IMAGES GRID VIEW ================= -->
+        <div id="grid-view-section" class="hidden flex-col gap-6">
+          <div class="text-xs text-pdf-navy font-mono font-bold flex items-center gap-2 pb-2 border-b border-pdf-border">
+            <span class="text-pdf-teal">◆ ■</span>
+            <span>本專案包含的所有高解析詳細圖片平鋪清單：</span>
+          </div>
+
+          <!-- All media stacked vertically -->
+          <div id="grid-all-media-container" class="space-y-6">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- ================= PROJECT DETAILS & DESCRIPTION (PDF Card Style) ================= -->
+        <div class="border-t border-pdf-border pt-5 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div id="modal-tags" class="flex flex-wrap gap-2 text-xs font-mono">
+              <!-- Injected via JS -->
+            </div>
+            <div class="text-xs text-pdf-slateLight font-mono" id="modal-files-count">
+              共包含多張詳細圖片與素材
+            </div>
+          </div>
+
+          <div class="bg-pdf-bg p-4 rounded-2xl border border-pdf-border">
+            <h4 class="text-xs font-bold text-pdf-navy uppercase tracking-widest font-mono mb-2 flex items-center gap-1.5">
+              <span class="text-pdf-teal">■</span>
+              <span>專案亮點與背景說明</span>
+            </h4>
+            <p id="modal-desc" class="text-pdf-slate text-sm leading-relaxed">
+              專案詳細說明...
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Bottom Actions -->
+      <div class="px-6 py-3 border-t border-pdf-border bg-pdf-bg/80 flex items-center justify-between text-xs text-pdf-slate">
+        <span class="font-mono">按 ESC 或點擊背景關閉視窗</span>
+        <button onclick="closeProjectModal()" class="px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-pdf-navy font-semibold border border-pdf-border transition shadow-sm">
+          關閉預覽
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification (PDF Palette) -->
+  <div id="toast" class="fixed bottom-8 right-8 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="px-5 py-3 rounded-xl bg-pdf-navy text-white text-sm shadow-xl flex items-center gap-3 border border-pdf-teal/30">
+      <i data-lucide="check-circle" class="w-5 h-5 text-pdf-teal"></i>
+      <span id="toast-message">訊息通知</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT LOGIC & PROJECTS DATABASE -->
+  <!-- ========================================================================= -->
+  <script>
+    // =========================================================================
+    // 專案資料庫：完整包含各專案的多圖、刀模、展會廣告與影音素材
+    // =========================================================================
+    const projectsData = [
+      {
+        id: 'expo-medtech',
+        title: '臺灣精品國際醫療展 — 全案主視覺',
+        fullTitle: '臺灣精品國際醫療展 — 全案主視覺與展場廣告整合',
+        category: 'expo',
+        categoryName: '大型展會 KV',
+        badgeColor: 'blue',
+        tags: ['展覽主視覺', '戶外巨幅', '手扶梯包覆', '醫療科技', '動態螢幕'],
+        summary: '規劃大型展場空間動線、戶外廣告看板與手扶梯視覺包覆，傳遞台灣頂尖生技醫療的前瞻品牌形象。',
+        desc: '針對國際醫療展打造的震撼大器主視覺（Key Vision）。全案涵蓋現場巨幅手扶梯包覆廣告、戶外大型燈箱廣告、展館立柱宣傳、多語系動態螢幕宣傳短片，以及專案手冊成果展示。點擊可切換檢視完整 13 組詳細設計原檔。',
+        thumbnail: './專案設計%20醫療展/臺灣精品_醫療展KV.png',
+        media: [
+          { type: 'image', url: './專案設計%20醫療展/臺灣精品_醫療展KV.png', label: '01. 展覽主視覺 Key Vision (KV)' },
+          { type: 'image', url: './專案設計%20醫療展/手扶梯廣告.jpg', label: '02. 展場手扶梯大型包覆廣告實景' },
+          { type: 'image', url: './專案設計%20醫療展/手扶梯廣告0630.jpg', label: '03. 手扶梯廣告印刷完稿版面' },
+          { type: 'image', url: './專案設計%20醫療展/戶外廣告1.png', label: '04. 展館戶外大型看板 01' },
+          { type: 'image', url: './專案設計%20醫療展/戶外廣告2.png', label: '05. 展館戶外大型看板 02' },
+          { type: 'image', url: './專案設計%20醫療展/戶外廣告3.png', label: '06. 戶外大型立柱宣傳 03' },
+          { type: 'image', url: './專案設計%20醫療展/戶外廣告4.png', label: '07. 戶外大型立柱宣傳 04' },
+          { type: 'image', url: './專案設計%20醫療展/GIF_MAIN.gif', label: '08. 展場主螢幕動態主視覺動畫 (GIF)' },
+          { type: 'image', url: './專案設計%20醫療展/GIF_EN.gif', label: '09. 多語系動態螢幕（英文版 GIF）' },
+          { type: 'image', url: './專案設計%20醫療展/GIF_DE.gif', label: '10. 多語系動態螢幕（德文版 GIF）' },
+          { type: 'image', url: './專案設計%20醫療展/portfolio-2023PDF_頁面_11.png', label: '11. 專案成果手冊排版 01' },
+          { type: 'image', url: './專案設計%20醫療展/portfolio-2023PDF_頁面_12.png', label: '12. 專案成果手冊排版 02' },
+          { type: 'image', url: './專案設計%20醫療展/portfolio-2023PDF_頁面_13.png', label: '13. 專案成果手冊排版 03' }
+        ]
+      },
+      {
+        id: 'line-richmenu',
+        title: '頂級香氛沙龍 — LINE 圖文選單系統',
+        fullTitle: '頂級香氛美學沙龍 — LINE 官方帳號圖文選單系列',
+        category: 'social',
+        categoryName: 'LINE 官方視覺',
+        badgeColor: 'emerald',
+        tags: ['Rich Menu', '指尖熱區佈局', '私域流量', '高轉化率', '社群入口'],
+        summary: '調和低調奢華的視覺氛圍與清晰的功能指引，打造具備高回訪與高預約率的官方社群入口。',
+        desc: '針對多個商業品牌與機構規劃的 LINE 官方帳號 Rich Menu。精密計算手機大拇指熱區與視覺層次，包含香氛沙龍、WA-Studio 攝影、醫療衛教諮詢、幼兒園聯絡簿及個人設計師等完整 6 組不同產業的落地應用。',
+        thumbnail: './LINE圖文選單/VC_fragrance4.png',
+        media: [
+          { type: 'image', url: './LINE圖文選單/VC_fragrance4.png', label: '01. VC 頂級香氛沙龍 — 尊榮預約圖文選單' },
+          { type: 'image', url: './LINE圖文選單/WA-studio.png', label: '02. WA-Studio 攝影工作坊 — 服務導流選單' },
+          { type: 'image', url: './LINE圖文選單/紫質症4.jpg', label: '03. 罕見疾病醫療衛教 — 官方諮詢選單' },
+          { type: 'image', url: './LINE圖文選單/髮型師.png', label: '04. 美髮設計師個人品牌 — 專屬預約選單' },
+          { type: 'image', url: './LINE圖文選單/幼兒園2500-1686.png', label: '05. 幼兒園官方家長聯絡簿 — 服務入口選單' },
+          { type: 'image', url: './LINE圖文選單/詠雋2.jpg', label: '06. 詠雋品牌官方商務圖文選單' }
+        ]
+      },
+      {
+        id: 'packaging-yuanbao',
+        title: '元寶雙喜禮盒 — 頂級年節包裝',
+        fullTitle: '宮廷御賞元寶雙喜禮盒 — 頂級年節商業包裝與刀模結構',
+        category: 'packaging',
+        categoryName: '商業包裝',
+        badgeColor: 'amber',
+        tags: ['結構刀模', '立體禮盒', '燙金工藝', '印刷後加工', '年節禮盒'],
+        summary: '從平光刀模結構計算到金箔特殊後加工，創造尊榮厚實的禮節開箱體驗與貨架陳列張力。',
+        desc: '為頂級伴手禮量身研發之立體雙喜元寶禮盒。全案包含金黃款、紅金款外觀、專利卡榫刀模展開圖與特殊印刷後加工規範，並同步規劃年節檔期促銷 eDM 視覺。',
+        thumbnail: './包裝設計/元寶雙喜禮盒A款1.png',
+        media: [
+          { type: 'image', url: './包裝設計/元寶雙喜禮盒A款1.png', label: '01. 元寶雙喜禮盒 A 款 — 金黃開運喜慶版' },
+          { type: 'image', url: './包裝設計/元寶雙喜禮盒B1.png', label: '02. 元寶雙喜禮盒 B 款 — 尊爵典雅紅金版' },
+          { type: 'image', url: './包裝設計/元寶禮盒刀模F版_outline.png', label: '03. 專利立體結構包裝刀模展開圖' },
+          { type: 'image', url: './包裝設計/元寶EDMa2.png', label: '04. 春節年節促銷行銷視覺 A' },
+          { type: 'image', url: './包裝設計/元寶EDMb2.png', label: '05. 春節年節促銷行銷視覺 B' }
+        ]
+      },
+      {
+        id: 'branding-lyla',
+        title: '萊拉家居 Lyla Home — 品牌標誌系統',
+        fullTitle: '萊拉家居 Lyla Home — 極簡北歐居家品牌識別與標誌系統',
+        category: 'branding',
+        categoryName: 'LOGO & 識別',
+        badgeColor: 'purple',
+        tags: ['極簡識別', '幾何比例', 'CIS 規範', '向量線稿', 'LOGO動態'],
+        summary: '以精準黃金幾何比例打造北歐風格線條，體現現代都會生活的洗鍊與溫度。',
+        desc: '以柔和圓弧與空間幾何比例打造的極簡家居標誌。本案包含標誌標準線稿、黃金比例規範、深淺色彩應用情境、幼教品牌標誌延伸，以及動態 LOGO 片頭動畫演示。',
+        thumbnail: './LOGO設計/萊拉家居_outline.png',
+        media: [
+          { type: 'image', url: './LOGO設計/萊拉家居_outline.png', label: '01. 萊拉家居 — 標誌標準線稿與幾何比例' },
+          { type: 'image', url: './LOGO設計/萊拉家居_outline1.png', label: '02. 萊拉家居 — 多配色情境應用展示' },
+          { type: 'image', url: './LOGO設計/萊拉家居_outline2.png', label: '03. 萊拉家居 — 深淺底色辨識度規範' },
+          { type: 'image', url: './LOGO設計/幼兒園頭貼.png', label: '04. 幼兒園教育品牌識別與吉祥物頭像' },
+          { type: 'video', url: './LOGO設計/mt_LOGO影片.mp4', label: '05. 品牌標誌動態片頭動畫展示 (影片)' }
+        ]
+      },
+      {
+        id: 'social-cards',
+        title: '聖誕餐酒指南 — 商業行銷圖卡',
+        fullTitle: '聖誕餐酒搭配指南 — 商業行銷社群圖卡系列',
+        category: 'social',
+        categoryName: '社群圖卡',
+        badgeColor: 'rose',
+        tags: ['資訊可讀性', '節慶檔期', '爆款圖文', '社群行銷', '懶人包圖卡'],
+        summary: '強化內容架構與微觀對比，有效引導讀者視覺自然流暢滑過重點資訊與選購推薦。',
+        desc: '運用暖色調與資訊分級設計，將專業餐酒搭配、登山實測、品酒指南與各大檔期廣告整理為高點擊社群圖卡。內含 10 組完整的社群輪播、FB 橫幅封面與正方形促銷圖卡。',
+        thumbnail: './圖卡設計/餐酒搭配指南-聖誕3.png',
+        media: [
+          { type: 'image', url: './圖卡設計/餐酒搭配指南-聖誕3.png', label: '01. 聖誕餐酒指南 — 節慶高轉化懶人包圖卡' },
+          { type: 'image', url: './圖卡設計/登山實測.png', label: '02. 機能戶外裝備 — 登山實測體驗長圖卡' },
+          { type: 'image', url: './圖卡設計/紅酒1.png', label: '03. 品酒指南 — 葡萄品種與產區解析' },
+          { type: 'image', url: './圖卡設計/紅酒3.png', label: '04. 品酒指南 — 適飲溫度與醒酒建議' },
+          { type: 'image', url: './圖卡設計/廣告圖for消費者FB封面_0130.png', label: '05. FB 粉絲專頁大型橫幅封面' },
+          { type: 'image', url: './圖卡設計/廣告圖for消費者正方形_0130.png', label: '06. IG / FB 正方形促銷廣告圖卡' },
+          { type: 'image', url: './圖卡設計/google數位學程_Line.jpg', label: '07. Google 數位學程認證推廣圖卡' },
+          { type: 'image', url: './圖卡設計/linkedin.jpg', label: '08. LinkedIn 商務專業社群形象圖卡' },
+          { type: 'image', url: './圖卡設計/廣告.jpg', label: '09. 促銷檔期廣告視覺 01' },
+          { type: 'image', url: './圖卡設計/廣告_1.jpg', label: '10. 促銷檔期廣告視覺 02' }
+        ]
+      },
+      {
+        id: 'edm-wetalk',
+        title: 'WeTalk 數位教育 — 動態 eDM',
+        fullTitle: 'WeTalk 互動教育 — 動態數位 eDM 與行銷郵件設計',
+        category: 'edm',
+        categoryName: '動態 eDM / GIF',
+        badgeColor: 'cyan',
+        tags: ['動態視覺', '電子郵件行銷', '高點擊率', '長條 eDM', '展架 Mockup'],
+        summary: '以吸睛的輕量化動畫節奏引導目光，成功大幅提升信件閱讀完成度與 CTA 報名點擊。',
+        desc: '針對數位教育課程規劃的高互動動態 GIF 電子郵件行銷（eDM）。突破靜態信件沉悶感，包含完整長條版面、展架 Mockup 展演、英文多語系版與多組會員促銷 eDM。',
+        thumbnail: './EDM/wetalkEDM.gif',
+        media: [
+          { type: 'image', url: './EDM/wetalkEDM.gif', label: '01. WeTalk 數位教育課程 — 動態 GIF eDM' },
+          { type: 'image', url: './EDM/wetalkEDM.png', label: '02. WeTalk eDM 完整靜態版面排版' },
+          { type: 'image', url: './EDM/eco_banner_stand_mockup_front_view.png', label: '03. 展會現場立牌 Banner Mockup 展演' },
+          { type: 'image', url: './EDM/v3_en.png', label: '04. 跨國商務英文版長條行銷 eDM' },
+          { type: 'image', url: './EDM/EDM1.png', label: '05. 會員專屬優惠行銷郵件排版' },
+          { type: 'image', url: './EDM/EDM.jpg', label: '06. 商業促銷 eDM 完整版 01' },
+          { type: 'image', url: './EDM/EDM%20(1).jpg', label: '07. 商業促銷 eDM 完整版 02' }
+        ]
+      },
+      {
+        id: 'branding-card',
+        title: '光影之境 — 頂級商務名片',
+        fullTitle: '光影之境 Glasses Studio — 頂級商務名片與印刷加工',
+        category: 'branding',
+        categoryName: '商務名片工藝',
+        badgeColor: 'slate',
+        tags: ['名片設計', '進口特種紙', '觸覺質感', '特殊刀模', '打凹燙銀'],
+        summary: '結合精細版面留白與厚磅紙質後加工，建立難以忘懷的第一類商務接觸印象。',
+        desc: '專為高端眼鏡工藝品牌量身規劃的名片系統。精選 450g 歐美進口棉卡，搭配無色打凹與消光霧銀，並收錄 WAWA 創意設計、幼兒園教師名片等多款刀模實體打樣。',
+        thumbnail: './名片設計/glasses.jpg',
+        media: [
+          { type: 'image', url: './名片設計/glasses.jpg', label: '01. 光影之境 — 高階商務名片實體打樣' },
+          { type: 'image', url: './名片設計/glasses%20(1).jpg', label: '02. 光影之境 — 名片背面工藝與特種紙紋理' },
+          { type: 'image', url: './名片設計/wawa.jpg', label: '03. WAWA 創意設計 — 特殊刀模造型名片' },
+          { type: 'image', url: './名片設計/幼稚園名片1.png', label: '04. 幼兒園教師名片 — 正面活潑清新排版' },
+          { type: 'image', url: './名片設計/幼稚園名片2.png', label: '05. 幼兒園教師名片 — 背面職務與聯絡資訊' },
+          { type: 'image', url: './名片設計/作品集12.png', label: '06. 名片刀模規範與紙質材質展演' }
+        ]
+      },
+      {
+        id: 'packaging-probiotics',
+        title: '專業舒敏益生菌 — 保健包裝外盒',
+        fullTitle: '專業舒敏益生菌 — 生技保健外盒包裝與印刷規格',
+        category: 'packaging',
+        categoryName: '保健包裝',
+        badgeColor: 'cyan',
+        tags: ['生技產品', '外盒展開', '醫療認證級', '法規標籤', '刀模規格'],
+        summary: '兼顧法規認證標章層次與消費者購買信任感，創造兼具科學專業與潔淨美感的包裝。',
+        desc: '專為現代機能保健品牌操刀的益生菌外盒。精準掌握資訊分級排版、食品法規標籤與貨架正面衝擊力，內附完整外盒立體效果圖與印廠刀模展開圖。',
+        thumbnail: './包裝設計/益生菌外盒.jpg',
+        media: [
+          { type: 'image', url: './包裝設計/益生菌外盒.jpg', label: '01. 益生菌保健品外盒立體效果圖' },
+          { type: 'image', url: './包裝設計/益生菌展開圖.jpg', label: '02. 完整印刷刀模展開圖與法規標籤' }
+        ]
+      },
+      {
+        id: 'video-commercial',
+        title: '珍鑫國際 / 新東陽 — 商業影音短片',
+        fullTitle: '知名品牌產品影音剪輯 — 商業宣傳與商品動態短片',
+        category: 'video',
+        categoryName: '商業影音',
+        badgeColor: 'indigo',
+        tags: ['珍鑫國際', '新東陽', '產品短片', '影音剪輯', '伴手禮動態'],
+        summary: '融合品牌特色節奏與質感調色，為珍鑫國際、新東陽、家會香等知名企業打造吸睛商品宣傳短片。',
+        desc: '精選 6 部知名食品伴手禮與企業產品影音宣傳短片。第一順位收錄「珍鑫國際」企業形象短片，並依序涵蓋新東陽、家會香、多利多、宇軒與家和，點擊即可直接在燈箱中播放完整高畫質影片。',
+        thumbnailVideo: './產品影片/珍鑫國際.mp4',
+        thumbnail: './產品影片/珍鑫國際.mp4',
+        media: [
+          { type: 'video', url: './產品影片/珍鑫國際.mp4', label: '01. 珍鑫國際 — 企業形象與商業產品宣傳短片' },
+          { type: 'video', url: './產品影片/新東陽2.mp4', label: '02. 新東陽 — 知名品牌商品宣傳短片' },
+          { type: 'video', url: './產品影片/家會香1.mp4', label: '03. 家會香 — 伴手禮特色商品動態短片' },
+          { type: 'video', url: './產品影片/多利多3.mp4', label: '04. 多利多 — 商業產品動態影音短片' },
+          { type: 'video', url: './產品影片/宇軒.mp4', label: '05. 宇軒 — 商業產品動態介紹影片' },
+          { type: 'video', url: './產品影片/家和.mp4', label: '06. 家和 — 品牌產品動態影片' }
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // 渲染作品卡片網格 (Cards Grid - PDF Style)
+    // =========================================================================
+    const worksGrid = document.getElementById("works-grid");
+
+    function renderWorksGrid(filter = "all") {
+      worksGrid.innerHTML = "";
+
+      const filtered = filter === "all" 
+        ? projectsData 
+        : projectsData.filter(p => p.category === filter);
+
+      filtered.forEach((project, index) => {
+        const mediaCount = project.media.length;
+        const hasVideo = project.media.some(m => m.type === "video");
+        const isVideoThumb = project.thumbnailVideo || (project.media[0] && project.media[0].type === "video");
+
+        const card = document.createElement("article");
+        card.className = "work-card pdf-card rounded-2xl overflow-hidden group flex flex-col transition-all duration-300 hover:-translate-y-1.5 cursor-pointer";
+        card.setAttribute("data-id", project.id);
+        card.setAttribute("data-category", project.category);
+
+        card.innerHTML = `
+          <!-- Thumbnail Container -->
+          <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
+            ${isVideoThumb ? `
+              <video src="${project.thumbnailVideo || project.media[0].url}#t=1.0" 
+                     preload="metadata" 
+                     muted 
+                     playsinline 
+                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none">
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                <span class="w-12 h-12 rounded-full bg-pdf-teal text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+                </span>
+              </div>
+            ` : `
+              <img src="${project.thumbnail}" 
+                   alt="${project.title}" 
+                   loading="lazy"
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80'">
+            `}
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60 pointer-events-none"></div>
+            
+            <!-- Category Badge (PDF Style) -->
+            <span class="absolute top-4 left-4 text-[11px] font-mono px-3 py-1 rounded-full bg-white/95 text-pdf-navy border border-pdf-border shadow-sm font-semibold backdrop-blur-sm z-10 flex items-center gap-1">
+              <span class="text-pdf-teal">■</span>
+              <span>${project.categoryName}</span>
+            </span>
+
+            <!-- Media Count Badge -->
+            <span class="absolute top-4 right-4 text-[10px] font-mono px-2.5 py-1 rounded-full bg-pdf-navy/90 text-white shadow-md z-10 flex items-center gap-1">
+              ${hasVideo ? '<i data-lucide="play-circle" class="w-3.5 h-3.5 text-pdf-teal"></i>' : '<i data-lucide="images" class="w-3.5 h-3.5 text-pdf-teal"></i>'}
+              <span>${mediaCount} 張詳細</span>
+            </span>
+
+            <!-- Hover Zoom Indicator -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-pdf-navy/30 backdrop-blur-[2px] z-10 pointer-events-none">
+              <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-pdf-navy font-bold text-xs shadow-xl transform translate-y-2 group-hover:translate-y-0 transition-all border border-pdf-border">
+                <i data-lucide="maximize-2" class="w-4 h-4 text-pdf-teal"></i>
+                點擊檢視完整作品詳情
+              </span>
+            </div>
+          </div>
+
+          <!-- Content Details -->
+          <div class="p-6 flex-1 flex flex-col justify-between bg-white">
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                ${project.tags.slice(0, 3).map(tag => `
+                  <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-md bg-pdf-bg text-pdf-slate border border-pdf-border">${tag}</span>
+                `).join('')}
+              </div>
+              <h3 class="text-lg font-bold text-pdf-navy group-hover:text-pdf-teal transition-colors mb-2 line-clamp-1">
+                ${project.title}
+              </h3>
+              <p class="text-xs text-pdf-slateLight leading-relaxed line-clamp-2 mb-4">
+                ${project.summary}
+              </p>
+            </div>
+
+            <!-- Footer Actions -->
+            <div class="pt-4 border-t border-pdf-border flex items-center justify-between text-xs">
+              <span class="text-pdf-teal group-hover:text-pdf-tealDark font-semibold flex items-center gap-1.5">
+                <span>檢視全套 (${mediaCount})</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-pdf-slateLight font-mono text-[11px]">CASE STUDY</span>
+            </div>
+          </div>
+        `;
+
+        card.addEventListener("click", () => {
+          openProjectModal(project);
+        });
+
+        worksGrid.appendChild(card);
+      });
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    // =========================================================================
+    // 分類篩選切換 (Filter Tabs)
+    // =========================================================================
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach(b => {
+          b.classList.remove("bg-pdf-navy", "text-white", "font-semibold", "shadow-sm");
+          b.classList.add("bg-white", "text-pdf-slate", "border", "border-pdf-border");
+        });
+        btn.classList.add("bg-pdf-navy", "text-white", "font-semibold", "shadow-sm");
+        btn.classList.remove("bg-white", "text-pdf-slate", "border", "border-pdf-border");
+
+        const category = btn.getAttribute("data-filter");
+        renderWorksGrid(category);
+      });
+    });
+
+    // =========================================================================
+    // 多圖燈箱控制系統 (Lightbox Modal System)
+    // =========================================================================
+    const projectModal = document.getElementById("project-modal");
+    const modalContainer = document.getElementById("modal-container");
+    const closeModalBtn = document.getElementById("close-modal-btn");
+    const modalTitle = document.getElementById("modal-title");
+    const modalCategory = document.getElementById("modal-category");
+    const modalDesc = document.getElementById("modal-desc");
+    const modalTags = document.getElementById("modal-tags");
+    const modalFilesCount = document.getElementById("modal-files-count");
+
+    // Slider View Elements
+    const sliderViewSection = document.getElementById("slider-view-section");
+    const gridViewSection = document.getElementById("grid-view-section");
+    const toggleViewModeBtn = document.getElementById("toggle-view-mode-btn");
+    const viewModeText = document.getElementById("view-mode-text");
+    const mainPreviewImg = document.getElementById("main-preview-img");
+    const mainPreviewVideo = document.getElementById("main-preview-video");
+    const prevMediaBtn = document.getElementById("prev-media-btn");
+    const nextMediaBtn = document.getElementById("next-media-btn");
+    const mediaCounterBadge = document.getElementById("media-counter-badge");
+    const mediaCaptionText = document.getElementById("media-caption-text");
+    const openRawLink = document.getElementById("open-raw-link");
+    const thumbnailsStrip = document.getElementById("thumbnails-strip");
+    const gridAllMediaContainer = document.getElementById("grid-all-media-container");
+
+    let currentProject = null;
+    let currentMediaIndex = 0;
+    let isGridViewMode = false;
+
+    function openProjectModal(project) {
+      currentProject = project;
+      currentMediaIndex = 0;
+      isGridViewMode = false;
+
+      // Update Header & Texts
+      modalTitle.textContent = project.fullTitle || project.title;
+      modalCategory.textContent = project.categoryName;
+      modalDesc.textContent = project.desc;
+      modalFilesCount.textContent = `本專案共收錄 ${project.media.length} 組高解析圖片 / 素材`;
+
+      // Update Tags
+      modalTags.innerHTML = project.tags.map(tag => 
+        `<span class="px-2.5 py-1 rounded bg-pdf-bg border border-pdf-border text-pdf-navy font-medium">${tag}</span>`
+      ).join('');
+
+      // Build Horizontal Thumbnails
+      thumbnailsStrip.innerHTML = "";
+      project.media.forEach((item, idx) => {
+        const thumbBtn = document.createElement("button");
+        thumbBtn.className = `shrink-0 relative w-20 h-14 sm:w-24 sm:h-16 rounded-xl overflow-hidden border border-pdf-border bg-slate-900 transition-all hover:opacity-100 ${idx === 0 ? 'thumb-active' : 'opacity-60'}`;
+        thumbBtn.setAttribute("data-index", idx);
+
+        if (item.type === "video") {
+          thumbBtn.innerHTML = `
+            <div class="relative w-full h-full bg-slate-950 overflow-hidden">
+              <video src="${item.url}#t=1.0" preload="metadata" muted playsinline class="w-full h-full object-cover pointer-events-none"></video>
+              <div class="absolute inset-0 bg-black/35 hover:bg-black/10 transition-colors flex items-center justify-center">
+                <span class="w-6 h-6 rounded-full bg-pdf-teal text-white flex items-center justify-center shadow-lg">
+                  <i data-lucide="play" class="w-3 h-3 fill-current ml-0.5"></i>
+                </span>
+              </div>
+              <span class="absolute bottom-1 right-1 text-[8px] font-mono px-1 py-0.2 rounded bg-black/80 text-pdf-teal font-bold">
+                影音
+              </span>
+            </div>
+          `;
+        } else {
+          thumbBtn.innerHTML = `
+            <img src="${item.url}" alt="${item.label}" class="w-full h-full object-cover">
+          `;
+        }
+
+        thumbBtn.addEventListener("click", () => {
+          showMediaAt(idx);
+        });
+
+        thumbnailsStrip.appendChild(thumbBtn);
+      });
+
+      // Build Stacked Grid Media (Mode B)
+      gridAllMediaContainer.innerHTML = "";
+      project.media.forEach((item, idx) => {
+        const itemBox = document.createElement("div");
+        itemBox.className = "rounded-2xl overflow-hidden bg-white border border-pdf-border p-4 space-y-3 shadow-sm";
+
+        if (item.type === "video") {
+          itemBox.innerHTML = `
+            <div class="flex items-center justify-between text-xs text-pdf-navy font-mono font-bold">
+              <span>${item.label}</span>
+              <span class="text-pdf-teal bg-pdf-ice px-2 py-0.5 rounded border border-pdf-teal/30">商業短片</span>
+            </div>
+            <div class="relative rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center">
+              <video controls src="${item.url}" class="w-full h-full object-contain"></video>
+            </div>
+          `;
+        } else {
+          itemBox.innerHTML = `
+            <div class="flex items-center justify-between text-xs text-pdf-navy font-mono font-bold">
+              <span>${item.label}</span>
+              <a href="${item.url}" target="_blank" class="text-pdf-teal hover:underline flex items-center gap-1 font-normal">
+                <span>檢視原圖</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+            <div class="w-full rounded-xl overflow-hidden bg-slate-900 flex items-center justify-center p-2">
+              <img src="${item.url}" alt="${item.label}" loading="lazy" class="w-full max-h-[75vh] object-contain">
+            </div>
+          `;
+        }
+        gridAllMediaContainer.appendChild(itemBox);
+      });
+
+      // Reset view mode to Slider
+      updateViewModeUI();
+
+      // Show First Media
+      showMediaAt(0);
+
+      // Open Modal Animation
+      projectModal.classList.remove("hidden");
+      setTimeout(() => {
+        projectModal.classList.remove("opacity-0");
+        modalContainer.classList.remove("scale-95");
+        modalContainer.classList.add("scale-100");
+      }, 10);
+      document.body.style.overflow = "hidden";
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    function showMediaAt(index) {
+      if (!currentProject || !currentProject.media[index]) return;
+      currentMediaIndex = index;
+      const media = currentProject.media[index];
+      const total = currentProject.media.length;
+
+      // Update Counter and Caption
+      mediaCounterBadge.textContent = `${index + 1} / ${total}`;
+      mediaCaptionText.textContent = media.label;
+      openRawLink.href = media.url;
+
+      if (media.type === "video") {
+        mainPreviewImg.classList.add("hidden");
+        mainPreviewVideo.classList.remove("hidden");
+        mainPreviewVideo.src = media.url;
+        mainPreviewVideo.play().catch(() => {});
+      } else {
+        mainPreviewVideo.pause();
+        mainPreviewVideo.classList.add("hidden");
+        mainPreviewImg.classList.remove("hidden");
+        mainPreviewImg.src = media.url;
+      }
+
+      // Update Thumbnails Active Style
+      const thumbBtns = thumbnailsStrip.querySelectorAll("button");
+      thumbBtns.forEach((btn, idx) => {
+        if (idx === index) {
+          btn.classList.add("thumb-active");
+          btn.classList.remove("opacity-60");
+          btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          btn.classList.remove("thumb-active");
+          btn.classList.add("opacity-60");
+        }
+      });
+    }
+
+    function prevMedia() {
+      if (!currentProject) return;
+      const total = currentProject.media.length;
+      const newIdx = (currentMediaIndex - 1 + total) % total;
+      showMediaAt(newIdx);
+    }
+
+    function nextMedia() {
+      if (!currentProject) return;
+      const total = currentProject.media.length;
+      const newIdx = (currentMediaIndex + 1) % total;
+      showMediaAt(newIdx);
+    }
+
+    function closeProjectModal() {
+      mainPreviewVideo.pause();
+      projectModal.classList.add("opacity-0");
+      modalContainer.classList.remove("scale-100");
+      modalContainer.classList.add("scale-95");
+      setTimeout(() => {
+        projectModal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }, 300);
+    }
+
+    function updateViewModeUI() {
+      if (isGridViewMode) {
+        sliderViewSection.classList.add("hidden");
+        gridViewSection.classList.remove("hidden");
+        viewModeText.textContent = "返回單張幻燈片";
+      } else {
+        sliderViewSection.classList.remove("hidden");
+        gridViewSection.classList.add("hidden");
+        viewModeText.textContent = "展開全部圖片平鋪";
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    // Toggle view mode button
+    toggleViewModeBtn.addEventListener("click", () => {
+      isGridViewMode = !isGridViewMode;
+      updateViewModeUI();
+    });
+
+    // Arrow navigation events
+    prevMediaBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      prevMedia();
+    });
+
+    nextMediaBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      nextMedia();
+    });
+
+    closeModalBtn.addEventListener("click", closeProjectModal);
+
+    // Close on outside click
+    projectModal.addEventListener("click", (e) => {
+      if (e.target === projectModal) {
+        closeProjectModal();
+      }
+    });
+
+    // Keyboard Shortcuts (Arrow keys & Escape)
+    window.addEventListener("keydown", (e) => {
+      if (projectModal.classList.contains("hidden")) return;
+
+      if (e.key === "Escape") {
+        closeProjectModal();
+      } else if (e.key === "ArrowLeft") {
+        prevMedia();
+      } else if (e.key === "ArrowRight") {
+        nextMedia();
+      }
+    });
+
+    // Copy Email Utility
+    function copyEmail() {
+      const email = "contact@portfolio2026.dev";
+      navigator.clipboard.writeText(email).then(() => {
+        showToast("聯絡信箱已成功複製！");
+      }).catch(() => {
+        showToast("信箱：contact@portfolio2026.dev");
+      });
+    }
+
+    // Toast Utility
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toast-message");
+    let toastTimeout;
+
+    function showToast(message) {
+      toastMsg.textContent = message;
+      toast.classList.remove("translate-y-20", "opacity-0");
+      toast.classList.add("translate-y-0", "opacity-100");
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove("translate-y-0", "opacity-100");
+        toast.classList.add("translate-y-20", "opacity-0");
+      }, 3000);
+    }
+
+    // Initial render
+    document.addEventListener("DOMContentLoaded", () => {
+      renderWorksGrid("all");
+    });
+  </script>
+</body>
+</html>

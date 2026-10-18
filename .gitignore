@@ -1,0 +1,16 @@
+# OS 產生的暫存檔案
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# 暫存與記錄檔
+*.tmp
+*.log
+.tempmediaStorage/
+.system_generated/
+
+# GitHub 單檔限制：
+# 醫療展目錄 PDF (256MB) 內建有 15P 高清翻頁冊，為避免遭 GitHub 100MB 限制拒絕，預設排除：
+專案設計 醫療展/0712廠商名錄.pdf
+
