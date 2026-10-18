@@ -93,6 +93,15 @@
       background: #009799;
     }
 
+    /* Hide scrollbar for smooth mobile horizontal swipe without ugly bars */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
     /* PDF Pattern: Geometric Dot Matrix */
     .bg-dot-pattern {
       background-image: radial-gradient(#9bd1e5 1.5px, transparent 1.5px);
@@ -253,31 +262,35 @@
         </p>
       </div>
 
-      <!-- Filter Buttons (PDF Clean Geometric Pills) -->
+      <!-- Filter Buttons (PDF Clean Geometric Pills, Mobile RWD optimized) -->
       <div class="flex flex-col items-end gap-2 sm:gap-2.5 text-[11px] sm:text-xs font-medium shrink-0 w-full sm:w-auto" id="filter-buttons">
         <!-- 第一列 -->
-        <div class="flex flex-nowrap items-center justify-end gap-1 sm:gap-2 w-full">
-          <button data-filter="all"
-            class="filter-btn active px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-pdf-navy text-white font-semibold shadow-sm transition-all flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
-            <span class="text-pdf-teal text-[9px] sm:text-[10px]">■</span>
-            <span>全部作品</span>
-          </button>
-          <button data-filter="expo"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">展會與空間</button>
-          <button data-filter="packaging"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">商業包裝</button>
-          <button data-filter="social"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">LINE與社群</button>
+        <div class="w-full flex items-center justify-end overflow-x-auto no-scrollbar py-0.5">
+          <div class="flex items-center gap-1.5 sm:gap-2 flex-nowrap ml-auto">
+            <button data-filter="all"
+              class="filter-btn active px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-pdf-navy text-white font-semibold shadow-sm transition-all flex items-center gap-1 sm:gap-1.5 whitespace-nowrap shrink-0">
+              <span class="text-pdf-teal text-[9px] sm:text-[10px]">■</span>
+              <span>全部作品</span>
+            </button>
+            <button data-filter="expo"
+              class="filter-btn px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap shrink-0">展會與空間</button>
+            <button data-filter="packaging"
+              class="filter-btn px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap shrink-0">商業包裝</button>
+            <button data-filter="social"
+              class="filter-btn px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap shrink-0">LINE與社群</button>
+          </div>
         </div>
 
         <!-- 第二列 -->
-        <div class="flex flex-nowrap items-center justify-end gap-1 sm:gap-2 w-full">
-          <button data-filter="branding"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">品牌與標誌</button>
-          <button data-filter="edm"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">動態與eDM</button>
-          <button data-filter="video"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">商業影音</button>
+        <div class="w-full flex items-center justify-end overflow-x-auto no-scrollbar py-0.5">
+          <div class="flex items-center gap-1.5 sm:gap-2 flex-nowrap ml-auto">
+            <button data-filter="branding"
+              class="filter-btn px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap shrink-0">品牌與標誌</button>
+            <button data-filter="edm"
+              class="filter-btn px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap shrink-0">動態與eDM</button>
+            <button data-filter="video"
+              class="filter-btn px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap shrink-0">商業影音</button>
+          </div>
         </div>
       </div>
     </div>
@@ -308,42 +321,44 @@
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- MODAL: MULTI-IMAGE & MEDIA LIGHTBOX (PDF Inspired Elegance) -->
+  <!-- MODAL: MULTI-IMAGE & MEDIA LIGHTBOX (PDF Inspired Elegance & Bulletproof Mobile RWD) -->
   <!-- ========================================================================= -->
   <div id="project-modal"
-    class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-5 md:p-8 backdrop-blur-md bg-slate-900/60 transition-all duration-300 opacity-0"
+    class="fixed inset-0 z-50 hidden flex items-center justify-center p-0 sm:p-4 md:p-8 backdrop-blur-md bg-slate-900/80 transition-all duration-300 opacity-0"
     aria-modal="true" role="dialog">
     <div
-      class="relative w-full max-w-6xl max-h-[94vh] bg-white rounded-3xl overflow-hidden flex flex-col border border-pdf-border shadow-2xl scale-95 transition-transform duration-300"
+      class="relative w-full h-full sm:h-auto max-w-6xl sm:max-h-[92vh] bg-white sm:rounded-3xl rounded-none overflow-hidden flex flex-col border-0 sm:border border-pdf-border shadow-2xl scale-95 transition-transform duration-300"
       id="modal-container">
 
-      <!-- Modal Top Bar (Clean Crisp White & Navy) -->
-      <div class="px-5 py-4 border-b border-pdf-border flex items-center justify-between bg-pdf-bg/80">
-        <div class="flex items-center gap-3 overflow-hidden">
-          <div class="flex items-center gap-1.5 shrink-0">
+      <!-- Modal Top Bar (Sticky, Clean Crisp White & Navy, Guaranteed Visible On Mobile) -->
+      <div class="px-3.5 py-3 sm:px-6 sm:py-4 border-b border-pdf-border flex items-center justify-between gap-2 sm:gap-4 bg-white/95 backdrop-blur-md shrink-0 sticky top-0 z-30 shadow-sm">
+        <div class="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+          <div class="hidden sm:flex items-center gap-1.5 shrink-0">
             <span class="text-pdf-teal text-xs">◆</span>
             <span class="text-pdf-navy text-xs">■</span>
           </div>
           <span id="modal-category"
-            class="text-xs font-mono px-3 py-1 rounded-full bg-pdf-ice text-pdf-navy font-semibold border border-pdf-teal/30 whitespace-nowrap">
+            class="text-[10px] sm:text-xs font-mono px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-pdf-ice text-pdf-navy font-semibold border border-pdf-teal/30 shrink-0 whitespace-nowrap">
             類別名稱
           </span>
-          <h2 id="modal-title" class="text-base sm:text-lg font-bold text-pdf-navy truncate max-w-md sm:max-w-lg">
+          <h2 id="modal-title" class="text-xs sm:text-base md:text-lg font-bold text-pdf-navy truncate min-w-0">
             作品標題
           </h2>
         </div>
 
         <!-- Right Controls: View Mode & Close -->
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <!-- View Mode Toggle: Slider vs All-in-one Grid -->
           <button id="toggle-view-mode-btn"
-            class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-pdf-border text-xs text-pdf-navy font-medium transition shadow-sm">
+            class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-pdf-border text-xs text-pdf-navy font-medium transition shadow-sm whitespace-nowrap">
             <i data-lucide="grid" class="w-3.5 h-3.5 text-pdf-teal"></i>
             <span id="view-mode-text">展開全部圖片平鋪</span>
           </button>
 
+          <!-- Close Modal Button: Big, easy touch target, NEVER pushed off screen -->
           <button id="close-modal-btn"
-            class="p-2 rounded-xl text-pdf-slate hover:text-pdf-navy hover:bg-slate-100 transition" aria-label="關閉視窗">
+            class="w-9 h-9 sm:w-9 sm:h-9 rounded-xl bg-slate-100 hover:bg-rose-50 text-pdf-navy hover:text-rose-600 border border-slate-200 transition flex items-center justify-center shrink-0 active:scale-95 shadow-sm"
+            aria-label="關閉視窗" title="關閉視窗 (ESC)">
             <i data-lucide="x" class="w-5 h-5"></i>
           </button>
         </div>
@@ -361,21 +376,21 @@
 
             <!-- Viewer Toolbar -->
             <div id="media-toolbar"
-              class="px-4 py-2.5 bg-slate-950/90 border-b border-slate-800/80 backdrop-blur-md flex items-center justify-between text-xs text-slate-300 z-20">
-              <div class="flex items-center gap-2">
+              class="px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-950/90 border-b border-slate-800/80 backdrop-blur-md flex items-center justify-between text-xs text-slate-300 z-20 gap-2">
+              <div class="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1">
                 <span id="media-counter-badge"
-                  class="px-2.5 py-0.5 rounded-full bg-pdf-teal text-white font-mono text-[11px] font-bold shadow-sm">
+                  class="px-2 py-0.5 sm:px-2.5 rounded-full bg-pdf-teal text-white font-mono text-[10px] sm:text-[11px] font-bold shadow-sm shrink-0">
                   1 / 1
                 </span>
-                <span id="media-caption-text" class="font-medium text-slate-100 line-clamp-1 max-w-[200px] sm:max-w-md">
+                <span id="media-caption-text" class="font-medium text-slate-100 truncate min-w-0 text-[11px] sm:text-xs">
                   圖片說明文字
                 </span>
                 <span id="media-dimension-hint"
-                  class="text-[10px] text-slate-400 font-mono hidden md:inline ml-1"></span>
+                  class="text-[10px] text-slate-400 font-mono hidden md:inline ml-1 shrink-0"></span>
               </div>
 
               <!-- Action Controls -->
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
                 <!-- Vertical Toggle: Fit Screen vs Full Width Natural View -->
                 <div id="vertical-view-controls"
                   class="hidden items-center bg-slate-900 rounded-lg p-0.5 border border-slate-700 text-[11px]">
@@ -591,13 +606,15 @@
 
       </div>
 
-      <!-- Modal Bottom Actions -->
+      <!-- Modal Bottom Actions (Sticky Bottom for easy close on mobile) -->
       <div
-        class="px-6 py-3 border-t border-pdf-border bg-pdf-bg/80 flex items-center justify-between text-xs text-pdf-slate">
-        <span class="font-mono">按 ESC 或點擊背景關閉視窗</span>
+        class="px-4 py-3 sm:px-6 sm:py-3 border-t border-pdf-border bg-pdf-bg/95 backdrop-blur-md flex items-center justify-between text-xs text-pdf-slate shrink-0 sticky bottom-0 z-30">
+        <span class="font-mono text-[11px] sm:text-xs text-pdf-slateLight hidden sm:inline">按 ESC 或點擊按鈕關閉</span>
+        <span class="font-mono text-[11px] text-pdf-slateLight sm:hidden">點擊下方按鈕關閉</span>
         <button onclick="closeProjectModal()"
-          class="px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-pdf-navy font-semibold border border-pdf-border transition shadow-sm">
-          關閉預覽
+          class="px-4 py-2 rounded-xl bg-pdf-navy hover:bg-pdf-teal text-white font-semibold transition shadow-sm flex items-center gap-1.5 active:scale-95 text-xs ml-auto">
+          <i data-lucide="x" class="w-3.5 h-3.5"></i>
+          <span>關閉視窗</span>
         </button>
       </div>
 
@@ -612,23 +629,24 @@
     aria-modal="true" role="dialog">
     <!-- Header -->
     <div
-      class="px-6 py-3.5 border-b border-slate-800 flex items-center justify-between text-white shrink-0 bg-slate-900/80">
-      <div class="flex items-center gap-3">
+      class="px-3.5 sm:px-6 py-3 border-b border-slate-800 flex items-center justify-between text-white shrink-0 bg-slate-900/90 gap-2">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
         <span
-          class="text-xs font-mono px-3 py-1 rounded-full bg-pdf-ice text-pdf-navy font-semibold border border-pdf-teal/30">
-          全螢幕超清檢視
+          class="text-[10px] sm:text-xs font-mono px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-pdf-ice text-pdf-navy font-semibold border border-pdf-teal/30 shrink-0 whitespace-nowrap">
+          全螢幕超清
         </span>
-        <span id="fullscreen-caption" class="text-sm font-semibold truncate max-w-md text-slate-200"></span>
+        <span id="fullscreen-caption" class="text-xs sm:text-sm font-semibold truncate min-w-0 text-slate-200"></span>
       </div>
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 shrink-0">
         <a id="fullscreen-raw-link" href="#" target="_blank"
-          class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 transition border border-slate-700">
+          class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 transition border border-slate-700 whitespace-nowrap">
           <i data-lucide="external-link" class="w-3.5 h-3.5 text-pdf-teal"></i>
           <span>新分頁開啟原始檔</span>
         </a>
         <button id="close-fullscreen-btn"
-          class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition" aria-label="關閉全螢幕">
-          <i data-lucide="x" class="w-6 h-6"></i>
+          class="w-9 h-9 sm:w-9 sm:h-9 rounded-xl bg-slate-800 hover:bg-rose-900/40 text-slate-200 hover:text-rose-400 border border-slate-700 transition flex items-center justify-center shrink-0 active:scale-95 shadow-sm"
+          aria-label="關閉全螢幕" title="關閉全螢幕 (ESC)">
+          <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
