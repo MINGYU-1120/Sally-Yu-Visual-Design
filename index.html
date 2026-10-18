@@ -172,6 +172,35 @@
       cursor: pointer;
     }
 
+    /* Filter Button Default & Active Styles (Bulletproof Desktop & Mobile) */
+    .filter-btn {
+      background-color: #ffffff;
+      color: #334155;
+      border: 1px solid #e2e8f0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    @media (hover: hover) {
+      .filter-btn:not(.active):hover {
+        color: #162033;
+        border-color: #00b4b6;
+      }
+    }
+
+    .filter-btn.active {
+      background-color: #162033 !important;
+      color: #ffffff !important;
+      border-color: #162033 !important;
+      font-weight: 700 !important;
+      box-shadow: 0 1px 3px rgba(22, 32, 51, 0.2) !important;
+    }
+
+    .filter-btn.active * {
+      color: #ffffff !important;
+    }
+
     /* ========================================================================= */
     /* MOBILE RWD FILTER BUTTONS & MODAL FIX (100% Guaranteed via Pure CSS)      */
     /* ========================================================================= */
@@ -226,6 +255,13 @@
         border-radius: 10px !important;
         box-sizing: border-box !important;
         min-width: 0 !important;
+      }
+      .filter-btn.active {
+        background-color: #162033 !important;
+        color: #ffffff !important;
+      }
+      .filter-btn.active * {
+        color: #ffffff !important;
       }
       .filter-btn span {
         letter-spacing: -0.2px !important;
@@ -363,26 +399,23 @@
         <!-- 第一列 (4 個按鈕：全部作品、展會與空間、商業包裝、LINE與社群) -->
         <div class="filter-row-1 flex items-center gap-1.5 sm:gap-2 justify-end w-full">
           <button data-filter="all"
-            class="filter-btn active px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-pdf-navy text-white font-semibold shadow-sm transition-all flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
-            <span class="text-pdf-teal text-[9px] sm:text-[10px]">■</span>
-            <span>全部作品</span>
-          </button>
+            class="filter-btn active px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all whitespace-nowrap">全部作品</button>
           <button data-filter="expo"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">展會與空間</button>
+            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all whitespace-nowrap">展會與空間</button>
           <button data-filter="packaging"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">商業包裝</button>
+            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all whitespace-nowrap">商業包裝</button>
           <button data-filter="social"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">LINE與社群</button>
+            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all whitespace-nowrap">LINE與社群</button>
         </div>
 
         <!-- 第二列 (3 個按鈕，靠右：品牌與標誌、動態與eDM、商業影音) -->
         <div class="filter-row-2 flex items-center gap-1.5 sm:gap-2 justify-end w-full">
           <button data-filter="branding"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">品牌與標誌</button>
+            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all whitespace-nowrap">品牌與標誌</button>
           <button data-filter="edm"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">動態與eDM</button>
+            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all whitespace-nowrap">動態與eDM</button>
           <button data-filter="video"
-            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-pdf-slate hover:text-pdf-navy hover:border-pdf-teal border border-pdf-border transition-all whitespace-nowrap">商業影音</button>
+            class="filter-btn px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all whitespace-nowrap">商業影音</button>
         </div>
       </div>
     </div>
@@ -1101,12 +1134,8 @@
 
     filterButtons.forEach(btn => {
       btn.addEventListener("click", () => {
-        filterButtons.forEach(b => {
-          b.classList.remove("bg-pdf-navy", "text-white", "font-semibold", "shadow-sm");
-          b.classList.add("bg-white", "text-pdf-slate", "border", "border-pdf-border");
-        });
-        btn.classList.add("bg-pdf-navy", "text-white", "font-semibold", "shadow-sm");
-        btn.classList.remove("bg-white", "text-pdf-slate", "border", "border-pdf-border");
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
 
         const category = btn.getAttribute("data-filter");
         renderWorksGrid(category);
